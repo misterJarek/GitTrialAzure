@@ -1,0 +1,156 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "CUENTA",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CUENTA",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "RUT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RUT",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "DV",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DV",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "CANAL_CURSE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CANAL_CURSE",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CUPO_EMISOR_NAC",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CUPO_EMISOR_NAC",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "CUPO_EMISOR_INT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CUPO_EMISOR_INT",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "CUPO_NUEVO_NAC",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CUPO_NUEVO_NAC",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "CUPO_NUEVO_INT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CUPO_NUEVO_INT",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DATOS_CSV",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CLIENTES_TABLE",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
