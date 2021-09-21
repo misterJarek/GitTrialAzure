@@ -1,0 +1,9 @@
+{
+	"name": "DataFactoryJSD",
+	"location": "brazilsouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "809b1667-ad6c-4a33-a173-c4f2855ab3d2",
+		"tenantId": "ece6489a-0cba-4080-b7b9-dd4be2b086f5"
+	}
+}

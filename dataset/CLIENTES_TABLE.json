@@ -1,0 +1,56 @@
+{
+	"name": "CLIENTES_TABLE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OuputSQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CUENTA",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RUT",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DV",
+				"type": "char"
+			},
+			{
+				"name": "CANAL_CURSE",
+				"type": "varchar"
+			},
+			{
+				"name": "CUPO_EMISOR_NAC",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "CUPO_EMISOR_INT",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CUPO_NUEVO_NAC",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "CUPO_NUEVO_INT",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "CLIENTES"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
